@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap');
+
+:root {
+    --primary: #6a9bff;
+    --background: #0f0f0f;
+    --text-light: #eaeaea;
+    --text-dark: #aaa;
+    --border-glass: rgba(255, 255, 255, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: var(--background);
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Animated Background */
+body::before {
+    content: "";
+    position: absolute;
+    width: 80vw;
+    height: 80vw;
+    max-width: 700px;
+    max-height: 700px;
+    background: radial-gradient(circle, rgba(106, 155, 255, 0.4), transparent);
+    filter: blur(80px);
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    animation: glowMove 8s infinite alternate ease-in-out;
+}
+
+@keyframes glowMove {
+    0% { transform: translateX(-50%) translateY(-10px); }
+    100% { transform: translateX(-50%) translateY(10px); }
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px 60px;
+    height: 80px;
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--border-glass);
+    z-index: 1000;
+}
+
+.navbar h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.navbar nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: var(--primary);
+}
+
+.hero, .features, .download {
+    padding-top: 120px;
+}
+
+/* Hero Section */
+.hero {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin: 20px 0 30px;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+button {
+    border: none;
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.primary {
+    background: var(--primary);
+    color: #fff;
+}
+
+.primary:hover {
+    background: #4f82e5;
+}
+
+.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    border: 1px solid var(--border-glass);
+}
+
+.secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Features */
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    padding: 80px 20px;
+    max-width: 1000px;
+}
+
+.feature {
+    flex: 1 1 300px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid var(--border-glass);
+    backdrop-filter: blur(10px);
+    transition: 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+.feature h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+/* Download Section */
+.download {
+    text-align: center;
+    padding: 80px 20px;
+    max-width: 600px;
+}
+
+.download h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.download p {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.download-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.download-btn {
+    width: 100%;
+    max-width: 250px;
+    background: var(--primary);
+    color: white;
+    font-size: 1.1rem;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.download-btn:hover {
+    background: #4f82e5;
+}
+
+/* Footer */
+footer {
+    background-color: #111;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* GitHub Link Styling */
+.github-link {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.github-link:hover {
+    color: #4078c0; /* GitHub blue color on hover */
+}
+
+.github-link i {
+    font-size: 24px;
+}
+
+/* Adding responsive design */
+@media (max-width: 768px) {
+    .github-link {
+        font-size: 18px;
+    }
+
+    .github-link i {
+        font-size: 22px;
+    }
+}
+
+/* Coming Soon Styling */
+.hero h1 {
+    font-size: 4.5rem;
+    color: var(--primary);
+}
+
+.hero p {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    margin-bottom: 40px;
+}
+
+.buttons button {
+    font-size: 1.2rem;
+    padding: 16px 32px;
+}
+
+.feature h2 {
+    color: var(--primary);
+}
+
+.feature p {
+    color: var(--text-light);
+}
+
+.download h2 {
+    font-size: 2.5rem;
+}
+
+.download p {
+    font-size: 1.3rem;
+}
+
+.download-buttons {
+    flex-direction: column;
+    align-items: center;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.signup-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .signup-form h3 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .signup-form label {
+    font-size: 14px;
+    color: #666;
+    display: block;
+    margin: 12px 0 5px;
+  }
+  
+  .signup-form input,
+  .signup-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+  }
+  
+  .signup-form input:focus,
+  .signup-form textarea:focus {
+    outline: none;
+    border-color: #7097f1;
+  }
+  
+  .signup-form button.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #7097f1;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .signup-form button.submit-btn:hover {
+    background-color: #5f89ec;
+  }
+  
+  .signup-form button.submit-btn:focus {
+    outline: none;
+  }
